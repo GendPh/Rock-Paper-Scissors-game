@@ -1,0 +1,160 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    font-family: 'Barlow Semi Condensed', sans-serif;
+    background: rgb(31, 55, 87);
+    background: -moz-radial-gradient(
+      circle,
+      rgba(31, 55, 87, 1) 0%,
+      rgba(19, 21, 55, 1) 100%
+    );
+    background: -webkit-radial-gradient(
+      circle,
+      rgba(31, 55, 87, 1) 0%,
+      rgba(19, 21, 55, 1) 100%
+    );
+    background: radial-gradient(
+      circle,
+      rgba(31, 55, 87, 1) 0%,
+      rgba(19, 21, 55, 1) 100%
+    );
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#1f3757",endColorstr="#131537",GradientType=1);
+    @apply text-white;
+  }
+  #score {
+    background: rgb(243, 243, 243);
+    background: -moz-linear-gradient(
+      0deg,
+      rgba(243, 243, 243, 1) 0%,
+      rgba(255, 255, 255, 1) 100%
+    );
+    background: -webkit-linear-gradient(
+      0deg,
+      rgba(243, 243, 243, 1) 0%,
+      rgba(255, 255, 255, 1) 100%
+    );
+    background: linear-gradient(
+      0deg,
+      rgba(243, 243, 243, 1) 0%,
+      rgba(255, 255, 255, 1) 100%
+    );
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#f3f3f3",endColorstr="#ffffff",GradientType=1);
+  }
+
+  .rock-paper-scissors-bg {
+    position: absolute;
+    inset: 0;
+    top: 15%;
+    background: transparent url('assets/images/bg-triangle.svg') no-repeat;
+    background-size: cover;
+  }
+}
+
+@layer components {
+  .text-score {
+    @apply text-[10px] font-semibold tracking-[1.56px] text-[#2A45C2];
+  }
+  .text-score-pointes {
+    @apply text-[40px] font-bold leading-[40px] text-[#565468];
+  }
+  .text-picks {
+    @apply text-[15px] font-bold leading-[32px] tracking-[1.88px];
+  }
+  .text-end-message {
+    @apply text-[56px] font-bold;
+  }
+  .text-btn {
+    @apply text-[16px] font-semibold tracking-[2.5px];
+  }
+
+  .option {
+    background: rgb(243, 243, 243);
+    background: -moz-linear-gradient(
+      180deg,
+      rgba(243, 243, 243, 1) 0%,
+      rgba(255, 255, 255, 1) 100%
+    );
+    background: -webkit-linear-gradient(
+      180deg,
+      rgba(243, 243, 243, 1) 0%,
+      rgba(255, 255, 255, 1) 100%
+    );
+    background: linear-gradient(
+      180deg,
+      rgba(243, 243, 243, 1) 0%,
+      rgba(255, 255, 255, 1) 100%
+    );
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#f3f3f3",endColorstr="#ffffff",GradientType=1);
+
+    @apply w-[130px] h-[133px] rounded-full flex justify-center items-center relative;
+
+    &::after {
+      content: '';
+      position: absolute;
+      inset: -1px;
+      border: 15px solid;
+      border-radius: 50%;
+    }
+
+    &.paper {
+      &::after {
+        border-color: #4664f4;
+      }
+      .bottom-border {
+        border-color: #2a45c2;
+      }
+    }
+    &.scissors {
+      &::after {
+        border-color: #eb9f0e;
+      }
+      .bottom-border {
+        border-color: #c76c1b;
+      }
+    }
+    &.rock {
+      &::after {
+        border-color: #db2e4d;
+      }
+      .bottom-border {
+        border-color: #9d1634;
+      }
+    }
+    &.spock {
+      &::after {
+        border-color: #3fb7cd;
+      }
+      .bottom-border {
+        border-color: #2d8dab;
+      }
+    }
+    &.lizard {
+      &::after {
+        border-color: #834ee3;
+      }
+      .bottom-border {
+        border-color: #5f37a8;
+      }
+    }
+
+    .top-border {
+      position: absolute;
+      inset: 14px;
+      border-top: 5px solid #babfd4;
+      border-radius: 50%;
+    }
+    .bottom-border {
+      position: absolute;
+      inset: -5px;
+      left: 0;
+      right: 0;
+      border-bottom: 5px solid;
+      border-radius: 50%;
+    }
+  }
+}
