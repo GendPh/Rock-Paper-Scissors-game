@@ -1,13 +1,39 @@
+@if(game==='rock-paper-scissors'){
 <article class="relative">
-  <div class="rock-paper-scissors-bg"></div>
+  <figure
+    class="block w-[186px] md:w-[254px] h-[188px] md:h-[287px] absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2">
+    <img src="../../assets/images/bg-triangle.svg" alt="bg-triangle" class="w-full h-full object-cover">
+  </figure>
 
   <div class="flex justify-between">
-    <app-option option="paper"></app-option>
-    <app-option option="scissors"></app-option>
+    <app-option [option]="['paper']"></app-option>
+    <app-option [option]="['scissors']"></app-option>
   </div>
 
   <div class="w-fit mx-auto mt-[15px]">
-    <app-option option="rock"></app-option>
+    <app-option [option]="['rock']"></app-option>
+  </div>
+</article>
+}@else if(game==='rock-paper-scissors-lizard-spock'){
+<article class="relative">
+  <figure
+    class="block w-[277px] md:w-[345px] h-[188px] md:h-[287px] absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2">
+    <img src="../../assets/images/bg-pentagon.svg" alt="bg-triangle" class="w-full h-full object-cover">
+  </figure>
+
+  <div class="flex justify-center">
+    <app-option [option]="['scissors','bonus']"></app-option>
+  </div>
+
+  <div class="flex justify-between mb-[25px]">
+    <app-option [option]="['spock','bonus']"></app-option>
+    <app-option [option]="['paper','bonus']"></app-option>
+  </div>
+
+  <div class="flex justify-center gap-[33px]">
+    <app-option [option]="['lizard','bonus']"></app-option>
+    <app-option [option]="['rock','bonus']"></app-option>
   </div>
 
 </article>
+}

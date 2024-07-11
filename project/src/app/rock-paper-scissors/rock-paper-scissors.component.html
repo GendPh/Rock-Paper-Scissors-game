@@ -1,5 +1,19 @@
 <app-header />
 
-<section class="mt-[105px]">
+@if(!playing){
+<section class="mt-[105px] mb-[139px] max-w-[476px] mx-auto animate-fadeIn">
   <app-game-board />
+</section>
+}@else {
+<section class="mt-[99px] mb-[52px] md:min-w-[476px] md:w-fit mx-auto animate-fadeIn">
+  <app-playing />
+</section>
+}
+
+<section class="flex gap-4 justify-center md:justify-end">
+  <button (click)="rulesService.openRules('normal')"
+    class="border border-white rounded-lg py-[11px] px-[37px] text-btn bg-transparent transition-colors duration-150 hover:bg-white hover:text-[#3b4262]">RULES</button>
+  <button (click)="resetGame()"
+    class="border border-white rounded-lg py-[11px] px-[37px] text-btn bg-transparent transition-colors duration-150 hover:bg-white hover:text-[#3b4262]"
+    routerLink="/">Home</button>
 </section>

@@ -45,14 +45,6 @@
     );
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#f3f3f3",endColorstr="#ffffff",GradientType=1);
   }
-
-  .rock-paper-scissors-bg {
-    position: absolute;
-    inset: 0;
-    top: 15%;
-    background: transparent url('assets/images/bg-triangle.svg') no-repeat;
-    background-size: cover;
-  }
 }
 
 @layer components {
@@ -70,6 +62,9 @@
   }
   .text-btn {
     @apply text-[16px] font-semibold tracking-[2.5px];
+  }
+  .text-rules {
+    @apply text-[32px] font-bold leading-[32px];
   }
 
   .option {
@@ -91,7 +86,10 @@
     );
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#f3f3f3",endColorstr="#ffffff",GradientType=1);
 
-    @apply w-[130px] h-[133px] rounded-full flex justify-center items-center relative;
+    @apply w-[130px] h-[133px] rounded-full flex justify-center items-center relative cursor-pointer;
+    &:not(.bonus) {
+      @apply md:w-[198px] md:h-[203px];
+    }
 
     &::after {
       content: '';
@@ -99,6 +97,31 @@
       inset: -1px;
       border: 15px solid;
       border-radius: 50%;
+    }
+    &:not(.hold)::before {
+      content: '';
+      position: absolute;
+      inset: -15px;
+      border: 15px solid transparent;
+      border-radius: 50%;
+      @apply transition-all duration-300;
+    }
+    &:hover:not(.hold)::before {
+      border-color: rgba(255, 255, 255, 0.05);
+    }
+
+    &.hold {
+      background: rgba(8, 4, 4, 0.1);
+      figure {
+        @apply hidden;
+      }
+      &::after {
+        border-color: transparent;
+      }
+      .bottom-border,
+      .top-border {
+        border-color: transparent;
+      }
     }
 
     &.paper {

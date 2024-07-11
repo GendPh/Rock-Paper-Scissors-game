@@ -9,18 +9,14 @@ import { CommonModule } from '@angular/common';
   templateUrl: './header.component.html',
   styles: ``
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent {
   @Input() public gameName: string = 'rock-paper-scissors';
 
   public points: string = "0";
 
-  constructor(private gameService: GameService) { }
-
-  ngOnInit(): void {
-    if (this.gameName === 'rock-paper-scissors') {
-      this.points = this.gameService.getRockPaperScissorsGamePoints() ?? "0";
-    } else if (this.gameName === 'lizard-spock') {
-      this.points = this.gameService.getLizardSpock() ?? "0";
-    }
+  constructor(private gameService: GameService) {
+    this.gameService.pointsSignal.subscribe((points) => {
+      this.points = points;
+    });
   }
 }

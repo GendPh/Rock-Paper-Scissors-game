@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { HeaderComponent } from './header/header.component';
+import { RulesService } from './service/rules.service';
 
 @Component({
   selector: 'app-root',
@@ -11,4 +12,5 @@ import { HeaderComponent } from './header/header.component';
 })
 export class AppComponent {
   title = 'project';
+  constructor(public rulesService: RulesService) { }
 }

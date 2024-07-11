@@ -1,0 +1,50 @@
+<article>
+  <div class="flex justify-between items-center text-picks text-center md:gap-[77px]">
+    <div class="flex flex-col md:flex-col-reverse gap-[17px] md:gap-[63px]">
+      <app-option class="pointer-events-none" [option]="[playerPicking]"></app-option>
+      <p>YOU PICKED</p>
+    </div>
+
+    <div class="text-center hidden" [ngClass]="{'md:block': gameEnd}">
+
+      <h2 class="text-end-message mb-6" [ngClass]="{'opacity-0': !gameEnd}">
+        @if(winner==='player'){
+        YOU WIN
+        }@else if(winner==='house'){
+        YOU LOSE
+        }@else if(winner === 'draw') {
+        IT'S A DRAW
+        }
+
+      </h2>
+      <button (click)="restartGame()"
+        class="bg-white text-[#3B4262] hover:text-[#DB2E4D] transition-colors duration-150 text-btn rounded-lg py-[15px] px-[60px]">PLAY
+        AGAIN</button>
+    </div>
+
+    <div class="flex flex-col md:flex-col-reverse gap-[17px] md:gap-[63px]">
+      @if(housePicking==='hold'){
+      <app-option class="pointer-events-none" [option]="[housePicking]"></app-option>
+      }@else {
+      <app-option class="pointer-events-none" [option]="[housePicking]"></app-option>
+      }
+      <p class="block min-w-fit">THE HOUSE PICKED</p>
+    </div>
+
+  </div>
+</article>
+
+<article class="text-center mt-[62px] md:hidden" [ngClass]="{'opacity-0': !gameEnd}">
+  <h2 class="text-end-message mb-4">
+    @if(winner==='player'){
+    YOU WIN
+    }@else if(winner==='house'){
+    YOU LOSE
+    }@else if(winner === 'draw') {
+    IT'S A DRAW
+    }
+  </h2>
+  <button (click)="restartGame()"
+    class="bg-white text-[#3B4262] hover:text-[#DB2E4D] transition-colors duration-150 text-btn rounded-lg py-[15px] px-[60px]">PLAY
+    AGAIN</button>
+</article>
