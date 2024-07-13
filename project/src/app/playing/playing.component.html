@@ -1,7 +1,10 @@
 <article>
   <div class="flex justify-between items-center text-picks text-center md:gap-[77px]">
     <div class="flex flex-col md:flex-col-reverse gap-[17px] md:gap-[63px]">
-      <app-option class="pointer-events-none" [option]="[playerPicking]"></app-option>
+      <div [ngClass]="{'win': winner == 'player'}">
+        <app-option class="pointer-events-none" [option]="[playerPicking]"></app-option>
+      </div>
+
       <p>YOU PICKED</p>
     </div>
 
@@ -22,11 +25,13 @@
         AGAIN</button>
     </div>
 
-    <div class="flex flex-col md:flex-col-reverse gap-[17px] md:gap-[63px]">
+    <div class="flex flex-col items-center md:flex-col-reverse gap-[17px] md:gap-[63px]">
       @if(housePicking==='hold'){
       <app-option class="pointer-events-none" [option]="[housePicking]"></app-option>
       }@else {
-      <app-option class="pointer-events-none" [option]="[housePicking]"></app-option>
+      <div [ngClass]="{'win': winner == 'house'}">
+        <app-option class="pointer-events-none" [option]="[housePicking]"></app-option>
+      </div>
       }
       <p class="block min-w-fit">THE HOUSE PICKED</p>
     </div>

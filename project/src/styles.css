@@ -66,6 +66,13 @@
   .text-rules {
     @apply text-[32px] font-bold leading-[32px];
   }
+  .win {
+    --shadow-w: 17px;
+    box-shadow: 0px 0px 0px calc(var(--shadow-w) * 1) rgba(255, 255, 255, 0.05),
+      0px 0px 0px calc(var(--shadow-w) * 2) rgba(255, 255, 255, 0.05),
+      0px 0px 0px calc(var(--shadow-w) * 3) rgba(255, 255, 255, 0.05);
+    @apply rounded-full;
+  }
 
   .option {
     background: rgb(243, 243, 243);
@@ -87,6 +94,7 @@
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#f3f3f3",endColorstr="#ffffff",GradientType=1);
 
     @apply w-[130px] h-[133px] rounded-full flex justify-center items-center relative cursor-pointer;
+
     &:not(.bonus) {
       @apply md:w-[198px] md:h-[203px];
     }
